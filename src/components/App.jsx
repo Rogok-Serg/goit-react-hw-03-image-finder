@@ -1,16 +1,18 @@
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <header className="searchbar">
+      <form className="form">
+        <button type="submit" className="button">
+          <span className="button-label">Search</span>
+        </button>
+        <input
+          className="input"
+          type="text"
+          autocomplete="off"
+          autofocus
+          placeholder="Search images and photos"
+        />
+      </form>
+    </header>
   );
 };
