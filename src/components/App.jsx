@@ -1,18 +1,19 @@
+import { Api } from './Api/Api';
+import { Button } from './Button/Button';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
+import { Loader } from './Loader/Loader';
+import { Modal } from './Modal/Modal';
+import { Searchbar } from './Searchbar/Searchbar';
+
 export const App = () => {
-  return (
-    <header className="searchbar">
-      <form className="form">
-        <button type="submit" className="button">
-          <span className="button-label">Search</span>
-        </button>
-        <input
-          className="input"
-          type="text"
-          autocomplete="off"
-          autofocus
-          placeholder="Search images and photos"
-        />
-      </form>
-    </header>
-  );
+  <>
+    <Api />
+    <Button />
+    <ImageGallery />
+    <ImageGalleryItem />
+    <Loader />
+    <Modal />
+    <Searchbar />
+  </>;
 };
