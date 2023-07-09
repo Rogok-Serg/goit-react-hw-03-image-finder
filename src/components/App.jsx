@@ -1,7 +1,7 @@
 import { Component } from 'react';
-// import { Button } from './Button/Button';
+import { Button } from './Button/Button';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-// import { Loader } from './Loader/Loader';
+import { Loader } from './Loader/Loader';
 // import { Modal } from './Modal/Modal';
 import { Searchbar } from './Searchbar/Searchbar';
 import { fetchData } from './api/api';
@@ -34,13 +34,15 @@ export class App extends Component {
     this.setState({ searcheQuery });
     console.log('searcheQuery: ', searcheQuery);
   };
+  handleClick = () => {};
   render() {
     const { dataImages, isLoading } = this.state;
     return (
       <>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        {isLoading && <h1>Loading...</h1>}
+        {isLoading && <Loader />}
         <ImageGallery images={dataImages} />
+        <Button onClick={this.handleClick} />
       </>
     );
   }

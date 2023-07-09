@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import css from './Searchbar.module.css';
 
 // import { Api } from 'components/Api/Api';
 
@@ -21,13 +22,13 @@ export class Searchbar extends Component {
   };
   render() {
     return (
-      <header className="searchbar">
-        <form onSubmit={this.handleSubmit} className="form">
-          <button type="submit" className="button">
-            <span className="button-label">Search</span>
+      <header className={css.searchbar}>
+        <form onSubmit={this.handleSubmit} className={css.form}>
+          <button type="submit" className={css.button}>
+            <span className={css.buttonLabel}>Search</span>
           </button>
           <input
-            className="input"
+            className={css.input}
             value={this.state.searcheQuery}
             onChange={this.handleImageGhange}
             type="text"
