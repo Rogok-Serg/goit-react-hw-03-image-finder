@@ -1,10 +1,30 @@
+import { Component } from 'react';
 import css from './Modal.module.css';
-export const Modal = ({ largeImageURL, tags }) => {
-  return (
-    <div className={css.overlay}>
-      <div className={css.modal}>
-        <img src={largeImageURL} alt={tags} />
+export class Modal extends Component {
+  componentDidMount() {
+    window.addEventListener('keydown', this.hendleKeyDown);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.hendleKeyDown);
+  }
+  hendleKeyDown = e => {
+    if (e.code === 'Escape') {
+      this.props.onClose();
+    }
+  };
+  hendleOverlayClick = e => {
+    if (e.currentTarget === e.target) {
+      this.props.onClose();
+    }
+  };
+  render() {
+    const { largeImageURL, tags } = this.props;
+    return (
+      <div className={css.overlay} onClick={this.hendleOverlayClick}>
+        <div className={css.modal}>
+          <img src={largeImageURL} alt={tags} />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}

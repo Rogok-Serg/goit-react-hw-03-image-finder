@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import css from './Searchbar.module.css';
+import { toast } from 'react-toastify';
 
 // import { Api } from 'components/Api/Api';
 
@@ -15,7 +16,12 @@ export class Searchbar extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.searcheQuery.trim() === '') {
-      alert('Please enter data to search');
+      toast.info('Please enter your query in the search field', {
+        autoClose: 1000,
+        hideProgressBar: true,
+        theme: 'colored',
+      });
+      return;
     }
     this.props.onSubmit(this.state.searcheQuery);
     this.setState({ searcheQuery: '' });
@@ -25,7 +31,7 @@ export class Searchbar extends Component {
       <header className={css.searchbar}>
         <form onSubmit={this.handleSubmit} className={css.form}>
           <button type="submit" className={css.button}>
-            <span className={css.buttonLabel}>Search</span>
+            Search
           </button>
           <input
             className={css.input}
