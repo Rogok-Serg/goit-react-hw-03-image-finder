@@ -15,8 +15,7 @@ export class ImageGalleryItem extends Component {
   };
 
   render() {
-    const { image } = this.props;
-    const { webformatURL, tags, largeImageURL } = image;
+    const { webformatURL, tags, largeImageURL } = this.props.image;
     return (
       <li className={css.imageGalleryItem}>
         <img
@@ -33,7 +32,11 @@ export class ImageGalleryItem extends Component {
   }
 }
 ImageGalleryItem.propTypes = {
-  webformatURL: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
-  largeImageURL: PropTypes.string.isRequired,
+  image: PropTypes.objectOf(
+    PropTypes.shape({
+      webformatURL: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+    })
+  ),
 };
