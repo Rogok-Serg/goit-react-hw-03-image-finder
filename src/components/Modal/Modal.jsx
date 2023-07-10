@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import css from './Modal.module.css';
+import PropTypes from 'prop-types';
+
 export class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.hendleKeyDown);
@@ -28,3 +30,8 @@ export class Modal extends Component {
     );
   }
 }
+Modal.propTypes = {
+  largeImageURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
